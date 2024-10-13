@@ -20,8 +20,12 @@ var pet = {
         this.happiness = Math.max(this.happiness -5, 0);
         this.hunger = Math.min(this.hunger +10, 100);
 
-        alert(`${this.name} is now ${this.age} old and happiness is ${this.happiness}`)
+        alert(`${this.name} is now ${this.age} old and happiness is ${this.happiness} and hunger is ${this.hunger}`)
 
+    },
+    
+    getStatus: function() {
+      return `Name ${this.name} age ${this.age} Happiness ${this.happiness} Hunger ${this.hunger}`
     }
 
 }
