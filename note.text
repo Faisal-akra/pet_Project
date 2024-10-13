@@ -1,0 +1,61 @@
+    feed: function(){
+        this.hunger = Math.max(this.hunger - 20, 0);
+        alert(`${this.name} has been fed! Hunger is now ${this.hunger}.`);
+    },
+
+
+    play: function() {
+        this.happiness = Math.min(this.happiness + 20, 100);
+        alert(`${this.name} had fun playing! Happiness is now ${this.happiness}.`);
+    },
+
+    agePet: function() {
+        this.age += 1;
+        this.happiness = Math.max(this.happiness - 5, 0);
+        this.hunger = Math.min(this.hunger + 10, 100);
+        alert(`${this.name} is now ${this.age} years old! Happiness is ${this.happiness}, and hunger is ${this.hunger}.`);
+    },
+
+    getStatus: function() {
+        return `
+            Name: ${this.name}
+            Type: ${this.type}
+            Age: ${this.age}
+            Happiness: ${this.happiness}
+            Hunger: ${this.hunger}
+        `;
+    }
+};
+
+
+//step 2 interactive loop
+
+function startPetGame() {
+    let action;
+    do {
+        action = prompt("What would you like to do?\n1. Feed pet\n2. Play with pet\n3. Age pet\n4. Check pet status\n5. Exit").trim();
+
+        switch (action) {
+            case "1":
+                pet.feed();
+                break;
+            case "2":
+                pet.play();
+                break;
+            case "3":
+                pet.agePet();
+                break;
+            case "4":
+                alert(pet.getStatus());
+                break;
+            case "5":
+                alert("Thanks for playing with your pet!");
+                break;
+            default:
+                alert("Invalid choice, please try again.");
+        }
+    } while (action !== "5");
+}
+
+// Start the game
+startPetGame();
