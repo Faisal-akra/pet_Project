@@ -1,32 +1,59 @@
 var pet = {
-    name: 'cat',
+    name: "kitty",
+    type: "cat",
     age: 3,
-    happiness: 50,
-    hunger:80,
-
+    happy: 50,
+    hunger: 80,
 
     feed: function() {
-        this.hunger = Math.max(this.hunger -20, 0);
-        alert(`${this.name}  has hunger now ${this.hunger}`)
+        this.hunger = Math.max(this.hunger = 20, 0);
+        alert(`${this.name} is hunger by ${this.hunger}`)
     },
 
     play: function() {
-        this.happiness = Math.min(this.happiness +20, 100);
-        alert(`${this.name} has happy now ${this.happiness}`)
-    },
+        this.happy = Math.min(this.happy = +20, 100);
+            alert(`${this.name} is play a game happy level is ${this.happy}`)
+        },
 
     agePet: function() {
-        this.age +=1;
-        this.happiness = Math.max(this.happiness -5, 0);
-        this.hunger = Math.min(this.hunger +10, 100);
-
-        alert(`${this.name} is now ${this.age} old and happiness is ${this.happiness} and hunger is ${this.hunger}`)
-
+        age += 1,
+        this.happy = Math.max(this.happy = -5, 0),
+        this.hunger = Math.min(this.hunger +10, 100)
     },
     
-    getStatus: function() {
-      return `Name ${this.name} age ${this.age} Happiness ${this.happiness} Hunger ${this.hunger}`
-    }
 
+    getStatus: function() {
+        return `name: ${this.name} age: ${this.age} type: ${this.type} hunger: ${this.hunger} happy: ${this.happy} `;
+    },
 }
-    
+
+
+function startPetGame() {
+    let action;
+    do {
+        action = prompt("What would you like to do?\n1. Feed pet\n2. Play with pet\n3. Age pet\n4. Check pet status\n5. Exit").trim();
+
+        switch (action) {
+            case "1":
+                pet.feed();
+                break;
+            case "2":
+                pet.play();
+                break;
+            case "3":
+                pet.agePet();
+                break;
+            case "4":
+                alert(pet.getStatus());
+                break;
+            case "5":
+                alert("Thanks for playing with your pet!");
+                break;
+            default:
+                alert("Invalid choice, please try again.");
+        }
+    } while (action !== "5");
+}
+
+// Start the game
+startPetGame();
